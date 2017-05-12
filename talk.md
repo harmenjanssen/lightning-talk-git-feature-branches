@@ -20,7 +20,7 @@ We recommend this fork of `git flow`: [petervanderdoes/gitflow-avh](https://gith
 ## Feature branches
 
 But what is a good way to manage feature branches? And in a broader sense, what do you want your Git history to look like?  
-Let's answer the second question first to get an idea for the first.
+Let's answer the latter question first to get an idea for the former question.
 
 ### Git commit messages
 
@@ -52,7 +52,7 @@ Where a good example would just be:
 
 If I ever want to go back to before the app sent email notifications, I could just go a step back into history and checkout the situation.  
 
-But we're all humans. Sometimes we make mistakes. Sometimes we want to switch snake_case to camelCase. How do we prevent those commits from muddying the commit history?
+But we're all humans. Sometimes we make mistakes. Sometimes we forget to update the documentation for our feature. How do we prevent those commits from muddying the commit history?
 
 ### Lifetime of a feature branch
 
@@ -75,7 +75,6 @@ If you use the git flow model, it's as easy as
 git flow feature start email-notifications
 ```
 
-At Grrr, we have added some shortcuts to [Garp](https://github.com/grrr-amsterdam/garp3) that prefix your branch with the name of the author, to quickly glance who's responsible for a given branch.
 
 ### Committing
 
@@ -92,6 +91,8 @@ git commit --amend
 ```
 
 This allows you to merge your current and previous commits, optionally tweaking the commit message. It's the easiest way to merge two commits and super helpful whenever you forgot something in the previous commit, or made a typo or whatever.
+
+💡 Pro-tip: grab this git alias to quickly amend unto the previous commit: [https://github.com/harmenjanssen/dotfiles/blob/master/gitconfig#L28](https://github.com/harmenjanssen/dotfiles/blob/master/gitconfig#L28)
 
 ### Rebasing
 
@@ -143,6 +144,8 @@ squash 4b7a292 Fixed typo in docs
 pick 0f75d8c Added HTML email template
 ```
 
+Git will show you a new document in your editor, in which all three original commit messages are present.  
+Leave the one you want to use and just comment out or remove the rest.  
 You will be left with a new history looking like this:
 
 ```bash
@@ -165,12 +168,16 @@ pick e006f04 Add email notifications
 reword 0f75d8c Added HTML email template 
 ```
 
-We will be dropped into an editor to correct the `Added HTML email template`. If we save this as `Add HTML email template`, the history looks consistent again:
+We will be dropped into an editor to correct the `Added HTML email template` message. If we save this as `Add HTML email template`, the history looks consistent again:
 
 ```bash
 0f75d8c Add HTML email template
 e006f04 Add email notifications
 ```
+
+💡 Pro-tip: grab this git alias to drop into interactive rebase starting at the first commit of your branch: [https://github.com/harmenjanssen/dotfiles/blob/master/gitconfig#L32](https://github.com/harmenjanssen/dotfiles/blob/master/gitconfig#L32)
+
+For example `git rbi master` would find the commit where you branched off `master` and allows you to rebase all commits from that point on.
 
 ### Code review
 
