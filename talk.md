@@ -92,7 +92,7 @@ git commit --amend
 
 This allows you to merge your current and previous commits, optionally tweaking the commit message. It's the easiest way to merge two commits and super helpful whenever you forgot something in the previous commit, or made a typo or whatever.
 
-💡 Pro-tip: grab this git alias to quickly amend unto the previous commit: [https://github.com/harmenjanssen/dotfiles/blob/master/gitconfig#L28](https://github.com/harmenjanssen/dotfiles/blob/master/gitconfig#L28)
+💡 Pro-tip: grab this git alias to quickly amend unto the previous commit: [https://github.com/harmenjanssen/dotfiles/blob/master/gitconfig#L27](https://github.com/harmenjanssen/dotfiles/blob/master/gitconfig#L27)
 
 ### Rebasing
 
